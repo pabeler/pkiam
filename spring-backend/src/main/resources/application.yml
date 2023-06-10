@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      database: Weather
+      host: mongo_db
+      port: 27017
