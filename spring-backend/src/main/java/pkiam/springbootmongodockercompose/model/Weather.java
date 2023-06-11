@@ -1,9 +1,10 @@
-package pkiam.springbootmongodockercompose.entity;
+package pkiam.springbootmongodockercompose.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @AllArgsConstructor
@@ -11,8 +12,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document(collection = "Weather")
 public class Weather {
+    @Transient
+    public static final String SEQUENCE_NAME = "weather_sequence";
+
     @Id
-    private Integer id;
+    private long id;
+
     private String date;
     private String cityName;
     private String description;
