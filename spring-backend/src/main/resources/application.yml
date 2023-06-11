@@ -1,6 +1,13 @@
+#spring:
+#  data:
+#    mongodb:
+#      database: Weather
+#      host: mongo_db
+#      port: 27017
+
 spring:
   data:
     mongodb:
       database: Weather
-      host: mongo_db
+      host: localhost
       port: 27017
