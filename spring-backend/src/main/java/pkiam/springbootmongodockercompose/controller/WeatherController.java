@@ -18,8 +18,8 @@ public class WeatherController {
         return weatherRepo.findAll();
     }
 
-    @PostMapping("/insert")
-    public Weather insertWeather(@RequestBody Weather weather) {
+    @PostMapping("/add")
+    public Weather addWeather(@RequestBody Weather weather) {
         return weatherRepo.save(weather);
     }
 }
