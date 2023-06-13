@@ -7,6 +7,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -18,7 +20,7 @@ public class Weather {
     @Id
     private long id;
 
-    private String date;
+    private Date date;
     private String cityName;
     private String description;
     private String icon;
@@ -28,4 +30,5 @@ public class Weather {
     private String humidity;
     private String windSpeed;
     private String windDeg;
+    private String cloudiness;
 }

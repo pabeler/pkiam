@@ -9,7 +9,8 @@ import pkiam.springbootmongodockercompose.service.SequenceGeneratorService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/weather")
+@CrossOrigin(origins = "*")
+@RequestMapping("/api/v1")
 public class WeatherController {
     @Autowired
     private WeatherRepo weatherRepo;
