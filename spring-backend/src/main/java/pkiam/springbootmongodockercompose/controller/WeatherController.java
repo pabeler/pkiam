@@ -33,7 +33,8 @@ public class WeatherController {
                     return null;
                 }
             }
-        } catch (NullPointerException ignored) {}
+        } catch (NullPointerException ignored) {
+        }
         weather.setId(sequenceGeneratorService.generateSequence(Weather.SEQUENCE_NAME));
         return weatherRepo.save(weather);
     }
