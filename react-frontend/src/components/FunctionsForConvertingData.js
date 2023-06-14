@@ -44,4 +44,10 @@ const splitDate = (date) => {
     return dayMonthYear + ", " + hourMinutesSeconds;
 }
 
-export { convertKelvinToCelsius, windDegreeToDirection, metersPerSecondToKilometersPerHour, convertUnixTimeToDate, splitDate};
+export {
+    convertKelvinToCelsius,
+    windDegreeToDirection,
+    metersPerSecondToKilometersPerHour,
+    convertUnixTimeToDate,
+    splitDate
+};

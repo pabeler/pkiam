@@ -16,14 +16,14 @@ function App() {
             <formContext.Provider value={{formOutput, setFormOutput, response, setResponse}}>
                 <BrowserRouter>
                     <Routes>
-                        <Route path="/history/:city" element={<HistoryPage />}/>
+                        <Route path="/history/:city" element={<HistoryPage/>}/>
                         <Route path="/" element={<Home/>}/>
                         <Route path="/history" element={<HistoryForm/>}/>
                     </Routes>
                 </BrowserRouter>
             </formContext.Provider>
         </div>
-  );
+    );
 }
 
 export default App;

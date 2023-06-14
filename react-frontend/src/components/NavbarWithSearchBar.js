@@ -10,8 +10,8 @@ import {convertUnixTimeToDate} from "./FunctionsForConvertingData";
 import {Link} from "react-router-dom";
 
 export default function NavbarWithSearchBar() {
-    const { setFormOutput } = useContext(formContext);
-    const { setResponse } = useContext(formContext);
+    const {setFormOutput} = useContext(formContext);
+    const {setResponse} = useContext(formContext);
     const [cityName, setCityName] = useState("");
 
     const handleFormSubmit = (event) => {
@@ -57,19 +57,21 @@ export default function NavbarWithSearchBar() {
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
                 <Navbar.Brand>
-                    <Link onClick={reloadPage} to=""><img src="images\logo.png" alt="logo" width="300" height="50" /></Link>
+                    <Link onClick={reloadPage} to=""><img src="images\logo.png" alt="logo" width="300"
+                                                          height="50"/></Link>
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link className="border rounded border-primary" href="/history">Historical weather data</Nav.Link>
+                        <Nav.Link className="border rounded border-primary" href="/history">Historical weather
+                            data</Nav.Link>
                     </Nav>
                     <Form className="d-flex" onSubmit={handleFormSubmit}>
                         <Form.Control
                             type="search"
                             placeholder="Type city name here"
                             className="me-2"
-                            required = {true}
+                            required={true}
                             onChange={(e) => setCityName(e.target.value)}
                         />
                         <Button variant="outline-success" type="submit">Search</Button>

@@ -17,7 +17,7 @@ export default function HistoryForm() {
             } else {
                 window.location.href = "/history/" + cityName;
             }
-        } ).catch((error) => {
+        }).catch((error) => {
             console.log(error);
             Swal.fire('Error', 'City not found', 'error')
         });
@@ -38,7 +38,7 @@ export default function HistoryForm() {
                                     type="search"
                                     placeholder="Type city name here"
                                     className="me-2"
-                                    required = {true}
+                                    required={true}
                                     onChange={(e) => setCityName(e.target.value)}
                                 />
                                 <Button variant="outline-success" type="submit">Search</Button>

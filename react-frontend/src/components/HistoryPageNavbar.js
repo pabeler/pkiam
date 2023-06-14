@@ -9,12 +9,13 @@ export default function HistoryPageNavbar() {
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
                 <Navbar.Brand>
-                    <Link to="/"><img src="..\images\logo.png" alt="logo" width="300" height="50" /></Link>
+                    <Link to="/"><img src="..\images\logo.png" alt="logo" width="300" height="50"/></Link>
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link className="border rounded border-primary" href="/history">Historical weather data</Nav.Link>
+                        <Nav.Link className="border rounded border-primary" href="/history">Historical weather
+                            data</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
