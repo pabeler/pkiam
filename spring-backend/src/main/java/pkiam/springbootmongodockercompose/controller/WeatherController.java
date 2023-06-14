@@ -6,6 +6,7 @@ import pkiam.springbootmongodockercompose.model.Weather;
 import pkiam.springbootmongodockercompose.repo.WeatherRepo;
 import pkiam.springbootmongodockercompose.service.SequenceGeneratorService;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -25,7 +26,25 @@ public class WeatherController {
 
     @PostMapping("/add")
     public Weather addWeather(@RequestBody Weather weather) {
+        try {
+            Date currentDate = weatherRepo.findTopByCityNameOrderByDateDesc(weather.getCityName()).getDate();
+            if (currentDate != null) {
+                if (weatherRepo.findTopByCityNameOrderByDateDesc(weather.getCityName()).getDate().equals(weather.getDate())) {
+                    return null;
+                }
+            }
+        } catch (NullPointerException ignored) {}
         weather.setId(sequenceGeneratorService.generateSequence(Weather.SEQUENCE_NAME));
         return weatherRepo.save(weather);
+    }
+
+    @GetMapping("/lastDateInDatabase/{cityName}")
+    public Date getLastDateInDatabase(@PathVariable String cityName) {
+        return weatherRepo.findTopByCityNameOrderByDateDesc(cityName).getDate();
+    }
+
+    @GetMapping("/findByCityName/{cityName}")
+    public List<Weather> getWeatherByCityName(@PathVariable String cityName) {
+        return weatherRepo.findByCityName(cityName);
     }
 }

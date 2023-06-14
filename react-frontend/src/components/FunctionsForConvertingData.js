@@ -32,20 +32,16 @@ const metersPerSecondToKilometersPerHour = (metersPerSecond) => {
     return Math.round(metersPerSecond * 3.6);
 }
 
-/*const convertUnixTimeToDate = (unixTime) => {
-        const dateObject = new Date(unixTime * 1000);
-        const day = ("0" + dateObject.getDate()).slice(-2);
-        const month = ("0" + (dateObject.getMonth() + 1)).slice(-2);
-        const year = dateObject.getFullYear();
-        const hours = ("0" + dateObject.getHours()).slice(-2);
-        const minutes = ("0" + dateObject.getMinutes()).slice(-2);
-        return day + "-" + month + "-" + year + " " + hours + ":" + minutes;
-    }*/
-
 const convertUnixTimeToDate = (unixTime, timezone) => {
     const dateObject = new Date(unixTime * 1000);
     dateObject.setUTCHours(dateObject.getUTCHours() + timezone / 3600);
     return dateObject;
 }
 
-export { convertKelvinToCelsius, windDegreeToDirection, metersPerSecondToKilometersPerHour, convertUnixTimeToDate };
+const splitDate = (date) => {
+    const dayMonthYear = date.slice(0, 10);
+    const hourMinutesSeconds = date.slice(11, 19);
+    return dayMonthYear + ", " + hourMinutesSeconds;
+}
+
+export { convertKelvinToCelsius, windDegreeToDirection, metersPerSecondToKilometersPerHour, convertUnixTimeToDate, splitDate};

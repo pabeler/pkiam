@@ -1,13 +1,13 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {Link} from "react-router-dom";
 import {Button, Form} from "react-bootstrap";
 import {useContext, useState} from "react";
 import {formContext} from "../App";
 import axios from "axios";
 import Swal from "sweetalert2";
 import {convertUnixTimeToDate} from "./FunctionsForConvertingData";
+import {Link} from "react-router-dom";
 
 export default function NavbarWithSearchBar() {
     const { setFormOutput } = useContext(formContext);
@@ -28,7 +28,7 @@ export default function NavbarWithSearchBar() {
                 console.log(convertUnixTimeToDate(response.data.dt, response.data.timezone));
                 axios.post("http://localhost:8080/api/v1/add", {
                     "date": convertUnixTimeToDate(response.data.dt, response.data.timezone),
-                    "cityName": cityName,
+                    "cityName": cityName.toUpperCase(),
                     "description": response.data.weather[0].description,
                     "icon": response.data.weather[0].icon,
                     "temp": response.data.main.temp,
@@ -49,11 +49,15 @@ export default function NavbarWithSearchBar() {
         });
     }
 
+    const reloadPage = () => {
+        window.location.reload();
+    }
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
                 <Navbar.Brand>
-                    <Link to="/"><img src="images\logo.png" alt="logo" width="300" height="50" /></Link>
+                    <Link onClick={reloadPage} to=""><img src="images\logo.png" alt="logo" width="300" height="50" /></Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
